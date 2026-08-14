@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA | Premium Fashion</title>
+
+    <meta name="description" content="VELORA - Premium fashion and clothing store.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid #2a2a2a;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 7px;
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at center, #29210b 0%, #0a0a0a 35%, #050505 70%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            letter-spacing: 5px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(55px, 10vw, 110px);
+            letter-spacing: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 38px);
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #bdbdbd;
+            max-width: 600px;
+            margin: auto;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            background: #d4af37;
+            color: #050505;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #f0d477;
+            transform: translateY(-2px);
+        }
+
+        /* SECTION */
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+            font-size: 13px;
+            letter-spacing: 4px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin-top: 10px;
+        }
+
+        /* PRODUCT */
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .product-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .product-images img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            background: #151515;
+            border: 1px solid #292929;
+            transition: 0.4s;
+        }
+
+        .product-images img:hover {
+            transform: scale(1.02);
+            border-color: #d4af37;
+        }
+
+        .product-info h3 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .description {
+            color: #bdbdbd;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            color: #ddd;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #d4af37;
+            margin-right: 10px;
+        }
+
+        /* SIZE TABLE */
+        .size-title {
+            color: #d4af37;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            color: #d4af37;
+            background: #111;
+        }
+
+        td {
+            color: #ddd;
+        }
+
+        /* ABOUT */
+        .about {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .about p {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #292929;
+            text-align: center;
+            padding: 50px 20px;
+            background: #020202;
+        }
+
+        footer .footer-logo {
+            color: #d4af37;
+            font-family: Georgia, serif;
+            font-size: 30px;
+            letter-spacing: 7px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .facebook {
+            display: inline-block;
+            margin-top: 20px;
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+                letter-spacing: 4px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                letter-spacing: 8px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-info h3 {
+                font-size: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">VELORA</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="small-title">WELCOME TO VELORA</div>
+
+            <h1>VELORA</h1>
+
+            <h2>NEW DOUBLE POCKET SHIRT</h2>
+
+            <p>
+                Premium style, comfort and everyday confidence.
+                Discover the latest collection from VELORA.
+            </p>
+
+            <a href="#shop" class="btn">SHOP NOW</a>
+
+        </div>
+    </section>
+
+
+    <!-- SHOP -->
+    <section id="shop">
+
+        <div class="section-title">
+            <span>NEW ARRIVAL</span>
+            <h2>Featured Product</h2>
+        </div>
+
+        <div class="product">
+
+            <!-- PRODUCT IMAGES -->
+            <div class="product-images">
+
+                <img src="shirt1.jpg" alt="VELORA Double Pocket Shirt">
+
+                <img src="shirt2.jpg" alt="VELORA Double Pocket Shirt">
+
+                <img src="shirt3.jpg" alt="VELORA Double Pocket Shirt">
+
+                <img src="shirt4.jpg" alt="VELORA Double Pocket Shirt">
+
+            </div>
+
+
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+
+                <h3>New Double Pocket Shirt</h3>
+
+                <div class="price">৳600</div>
+
+                <p class="description">
+                    Premium double pocket shirt made with soft,
+                    comfortable and summer-friendly Tuyil Cotton fabric.
+                </p>
+
+                <ul class="features">
+                    <li>Soft & Comfortable Fabric</li>
+                    <li>Colour Guaranteed</li>
+                    <li>Summer Friendly Fabric</li>
+                    <li>Premium Double Pocket Design</li>
+                </ul>
+
+
+                <div class="size-title">SIZE CHART</div>
+
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Chest</th>
+                        <th>Length</th>
+                    </tr>
+
+                    <tr>
+                        <td>M</td>
+                        <td>38</td>
+                        <td>28</td>
+                    </tr>
+
+                    <tr>
+                        <td>L</td>
+                        <td>40</td>
+                        <td>29</td>
+                    </tr>
+
+                    <tr>
+                        <td>XL</td>
+                        <td>42</td>
+                        <td>30</td>
+                    </tr>
+                </table>
+
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61576648416355"
+                    target="_blank"
+                    class="btn">
+                    ORDER NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <span>ABOUT US</span>
+            <h2>Why VELORA?</h2>
+        </div>
+
+        <div class="about">
+
+            <p>
+                VELORA is an online fashion brand focused on bringing
+                stylish, comfortable and quality clothing to modern
+                fashion lovers. Our goal is simple — premium style
+                without compromising comfort.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <span>GET IN TOUCH</span>
+            <h2>Contact VELORA</h2>
+        </div>
+
+        <div class="about">
+
+            <p>
+                For orders, product details and any queries,
+                contact us through our official Facebook page.
+            </p>
+
+            <a
+                href="https://www.facebook.com/profile.php?id=61576648416355"
+                target="_blank"
+                class="btn">
+                VISIT FACEBOOK PAGE
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">VELORA</div>
+
+        <p>Premium Fashion • Quality • Comfort</p>
+
+        <a
+            class="facebook"
+            href="https://www.facebook.com/profile.php?id=61576648416355"
+            target="_blank">
+            Facebook Page
+        </a>
+
+        <p style="margin-top:25px;">
+            © 2026 VELORA. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
