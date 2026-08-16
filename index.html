@@ -253,8 +253,9 @@
 
         /* ABOUT */
         .about {
-            text-align: center;
-            max-width: 800px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
         }
 
         .about p {
@@ -355,6 +356,166 @@
     color: #555;
     font-size: 12px;
 }
+        .product-card {
+    max-width: 500px;
+    margin: auto;
+    background: #0b0b0b;
+    border: 1px solid #292929;
+    transition: 0.4s;
+}
+
+.product-card:hover {
+    border-color: #d4af37;
+    transform: translateY(-5px);
+}
+
+.product-image {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.product-image:hover img {
+    transform: scale(1.04);
+}
+
+.product-card-info {
+    text-align: center;
+    padding: 25px;
+}
+
+.product-card-info h3 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.card-price {
+    color: #d4af37;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.view-product {
+    padding: 12px 25px;
+    background: #d4af37;
+    color: #050505;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.view-product:hover {
+    background: #f0d477;
+}
+
+
+/* PRODUCT DETAIL MODAL */
+
+.product-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.92);
+    padding: 40px 20px;
+}
+
+.product-modal-content {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    background: #080808;
+    border: 1px solid #333;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #d4af37;
+}
+
+.detail-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.detail-images img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid #292929;
+}
+
+.product-details h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.detail-price {
+    color: #d4af37;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.product-details > p {
+    color: #bdbdbd;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.whatsapp-btn {
+    margin-top: 25px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .product-modal-content {
+        grid-template-columns: 1fr;
+        padding: 25px 18px;
+        gap: 30px;
+    }
+
+    .product-details h2 {
+        font-size: 30px;
+    }
+
+    .product-card-info h3 {
+        font-size: 24px;
+    }
+}
     </style>
 </head>
 
@@ -404,88 +565,114 @@
     <!-- SHOP -->
     <section id="shop">
 
-        <div class="section-title">
-            <span>NEW ARRIVAL</span>
-            <h2>Featured Product</h2>
+    <div class="section-title">
+        <span>OUR COLLECTION</span>
+        <h2>Featured Product</h2>
+    </div>
+
+    <div class="product-card">
+
+        <div class="product-image" onclick="openProduct()">
+            <img src="766241290_122121616364888280_4878618867056231601_n.jpg"
+                 alt="VELORA Double Pocket Shirt">
         </div>
 
-        <div class="product">
+        <div class="product-card-info">
+            <h3>New Double Pocket Shirt</h3>
 
-            <!-- PRODUCT IMAGES -->
-            <div class="product-images">
+            <div class="card-price">৳600</div>
 
-                <img src="766241290_122121616364888280_4878618867056231601_n.jpg" alt="VELORA Double Pocket Shirt">
+            <button class="view-product" onclick="openProduct()">
+                VIEW PRODUCT
+            </button>
+        </div>
 
-                <img src="765818076_122121616262888280_5767988734016430910_n.jpg" alt="VELORA Double Pocket Shirt">
+    </div>
 
-                <img src="767508427_122121616076888280_913132322987917815_n.jpg" alt="VELORA Double Pocket Shirt">
-
-                <img src="768941457_122121615722888280_7881045676927020414_n.jpg" alt="VELORA Double Pocket Shirt">
-
-            </div>
-
-
-            <!-- PRODUCT INFO -->
-            <div class="product-info">
-
-                <h3>New Double Pocket Shirt</h3>
-
-                <div class="price">৳600</div>
-
-                <p class="description">
-                    Premium double pocket shirt made with soft,
-                    comfortable and summer-friendly Tuyil Cotton fabric.
-                </p>
-
-                <ul class="features">
-                    <li>Soft & Comfortable Fabric</li>
-                    <li>Colour Guaranteed</li>
-                    <li>Summer Friendly Fabric</li>
-                    <li>Premium Double Pocket Design</li>
-                </ul>
+</section>
 
 
-                <div class="size-title">SIZE CHART</div>
+<!-- PRODUCT DETAIL WINDOW -->
+<div id="productModal" class="product-modal">
 
-                <table>
-                    <tr>
-                        <th>Size</th>
-                        <th>Chest</th>
-                        <th>Length</th>
-                    </tr>
+    <div class="product-modal-content">
 
-                    <tr>
-                        <td>M</td>
-                        <td>38</td>
-                        <td>28</td>
-                    </tr>
+        <button class="close-modal" onclick="closeProduct()">×</button>
 
-                    <tr>
-                        <td>L</td>
-                        <td>40</td>
-                        <td>29</td>
-                    </tr>
+        <div class="detail-images">
 
-                    <tr>
-                        <td>XL</td>
-                        <td>42</td>
-                        <td>30</td>
-                    </tr>
-                </table>
+            <img src="766241290_122121616364888280_4878618867056231601_n.jpg"
+                 alt="VELORA Double Pocket Shirt">
 
+            <img src="765818076_122121616262888280_5767988734016430910_n.jpg"
+                 alt="VELORA Double Pocket Shirt">
 
-                <a
-                    href="https://www.facebook.com/profile.php?id=61576648416355"
-                    target="_blank"
-                    class="btn">
-                    ORDER NOW
-                </a>
+            <img src="767508427_122121616076888280_913132322987917815_n.jpg"
+                 alt="VELORA Double Pocket Shirt">
 
-            </div>
+            <img src="768941457_122121615722888280_7881045676927020414_n.jpg"
+                 alt="VELORA Double Pocket Shirt">
 
         </div>
 
-    </section>
+        <div class="product-details">
+
+            <h2>New Double Pocket Shirt</h2>
+
+            <div class="detail-price">৳600</div>
+
+            <p>
+                Premium double pocket shirt made with soft,
+                comfortable and summer-friendly Tuyil Cotton fabric.
+            </p>
+
+            <ul class="features">
+                <li>Soft & Comfortable Fabric</li>
+                <li>Colour Guaranteed</li>
+                <li>Summer Friendly Fabric</li>
+                <li>Premium Double Pocket Design</li>
+            </ul>
+
+            <div class="size-title">SIZE CHART</div>
+
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Chest</th>
+                    <th>Length</th>
+                </tr>
+
+                <tr>
+                    <td>M</td>
+                    <td>38</td>
+                    <td>28</td>
+                </tr>
+
+                <tr>
+                    <td>L</td>
+                    <td>40</td>
+                    <td>29</td>
+                </tr>
+
+                <tr>
+                    <td>XL</td>
+                    <td>42</td>
+                    <td>30</td>
+                </tr>
+            </table>
+
+            <a
+                href="https://wa.me/message/2xtqzmxwxempe1?text=Hello%20VELORA,%20I%20want%20to%20order%20the%20New%20Double%20Pocket%20Shirt."
+                target="_blank"
+                class="btn whatsapp-btn">
+                ORDER ON WHATSAPP
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 
     <!-- ABOUT -->
@@ -557,5 +744,32 @@
 
     </footer>
 
+    <script>
+
+function openProduct() {
+    document.getElementById("productModal").style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function closeProduct() {
+    document.getElementById("productModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("productModal");
+
+    if (event.target === modal) {
+        closeProduct();
+    }
+}
+
+</script>
+    <a
+    href="https://wa.me/message/2xtqzmxwxempe1?text=Hello%20VELORA,%20I%20want%20to%20order%20the%20New%20Double%20Pocket%20Shirt."
+    target="_blank"
+    class="btn whatsapp-btn">
+    ORDER NOW
+</a>
 </body>
 </html>
