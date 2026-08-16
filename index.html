@@ -87,17 +87,20 @@
         }
 
         .small-title {
-            color: #d4af37;
-            letter-spacing: 5px;
-            font-size: 13px;
-            margin-bottom: 18px;
+    color: #d4af37;
+    letter-spacing: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-transform: uppercase;
         }
 
         .hero h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(55px, 10vw, 110px);
-            letter-spacing: 15px;
-            margin-bottom: 15px;
+    font-family: Georgia, serif;
+    font-size: clamp(65px, 11vw, 125px);
+    letter-spacing: 18px;
+    margin-bottom: 25px;
+    font-weight: bold;
         }
 
         .hero h2 {
@@ -107,10 +110,13 @@
         }
 
         .hero p {
-            color: #bdbdbd;
-            max-width: 600px;
-            margin: auto;
-            font-size: 16px;
+            color: #eeeeee;
+    max-width: 750px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.3px;
         }
 
         .btn {
@@ -325,6 +331,30 @@
                 font-size: 34px;
             }
         }
+        .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.social-links a {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #d4af37;
+}
+
+.social-links span {
+    color: #555;
+    font-size: 12px;
+}
     </style>
 </head>
 
@@ -333,7 +363,7 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="VELORA.jpg">VELORA</div>
+            <div class="logo">VELORA</div>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -351,15 +381,20 @@
 
             <div class="small-title">WELCOME TO VELORA</div>
 
-            <h1>VELORA</h1>
+<h1>VELORA</h1>
 
-            <h2>NEW DOUBLE POCKET SHIRT</h2>
-
-            <p>
-                Premium style, comfort and everyday confidence.
-                Discover the latest collection from VELORA.
-            </p>
-
+<p>
+    Premium style, comfort and everyday confidence.
+    Discover the latest collection from VELORA.
+</p>
+            
+<div class="social-links">
+    <a href="https://instagram.com/velora_official28?igsh=mxq0mwkymjnxadfudg%3d%3d" target="_blank">Instagram</a>
+    <span>•</span>
+    <a href="https://www.facebook.com/profile.php?id=61576648416355" target="_blank">Facebook</a>
+    <span>•</span>
+    <a href="https://wa.me/message/2xtqzmxwxempe1" target="_blank">WhatsApp</a>
+</div>
             <a href="#shop" class="btn">SHOP NOW</a>
 
         </div>
