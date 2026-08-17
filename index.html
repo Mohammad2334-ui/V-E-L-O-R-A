@@ -516,6 +516,55 @@
         font-size: 24px;
     }
 }
+        .image-viewer {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-viewer img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.image-viewer .close-image {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.zoom-buttons {
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+    gap: 12px;
+}
+
+.zoom-buttons button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: #d4af37;
+    color: #050505;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
     </style>
 </head>
 
@@ -554,7 +603,7 @@
     <span>•</span>
     <a href="https://www.facebook.com/profile.php?id=61576648416355" target="_blank">Facebook</a>
     <span>•</span>
-    <a href="https://wa.me/message/2xtqzmxwxempe1" target="_blank">WhatsApp</a>
+    <a href=https://wa.me/8801894556123?text=Hello%20VELORA,%20I%20want%20to%20order%20New%20Double%20Pocket%20Shirt.
 </div>
             <a href="#shop" class="btn">SHOP NOW</a>
 
@@ -601,17 +650,28 @@
 
         <div class="detail-images">
 
-            <img src="766241290_122121616364888280_4878618867056231601_n.jpg"
-                 alt="VELORA Double Pocket Shirt">
+           <a href="javascript:void(0)">
+    <img src="766241290_122121616364888280_4878618867056231601_n.jpg"
+         alt="VELORA Double Pocket Shirt"
+         onclick="openImage(this.src)">
+</a>
+           <a href="javascript:void(0)">
+    <img src="765818076_122121616262888280_5767988734016430910_n.jpg"
+         alt="VELORA Double Pocket Shirt"
+         onclick="openImage(this.src)">
+</a>
 
-            <img src="765818076_122121616262888280_5767988734016430910_n.jpg"
-                 alt="VELORA Double Pocket Shirt">
+            <a href="javascript:void(0)">
+    <img src="767508427_122121616076888280_913132322987917815_n.jpg"
+         alt="VELORA Double Pocket Shirt"
+         onclick="openImage(this.src)">
+</a>
 
-            <img src="767508427_122121616076888280_913132322987917815_n.jpg"
-                 alt="VELORA Double Pocket Shirt">
-
-            <img src="768941457_122121615722888280_7881045676927020414_n.jpg"
-                 alt="VELORA Double Pocket Shirt">
+            <a href="javascript:void(0)">
+    <img src="768941457_122121615722888280_7881045676927020414_n.jpg"
+         alt="VELORA Double Pocket Shirt"
+         onclick="openImage(this.src)">
+</a>
 
         </div>
 
@@ -771,5 +831,61 @@ window.onclick = function(event) {
     class="btn whatsapp-btn">
     ORDER NOW
 </a>
+    <!-- IMAGE ZOOM VIEWER -->
+<div id="imageViewer" class="image-viewer">
+
+    <span class="close-image" onclick="closeImage()">×</span>
+
+    <img id="zoomImage" src="" alt="VELORA Product">
+
+    <div class="zoom-buttons">
+        <button onclick="zoomIn()">+</button>
+        <button onclick="zoomOut()">−</button>
+        <button onclick="resetZoom()">↺</button>
+    </div>
+
+</div>
+
+<script>
+let currentZoom = 1;
+
+function openImage(imageSrc) {
+    const viewer = document.getElementById("imageViewer");
+    const image = document.getElementById("zoomImage");
+
+    image.src = imageSrc;
+    currentZoom = 1;
+    image.style.transform = "scale(1)";
+
+    viewer.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function closeImage() {
+    document.getElementById("imageViewer").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+function zoomIn() {
+    currentZoom += 0.25;
+    document.getElementById("zoomImage").style.transform =
+        "scale(" + currentZoom + ")";
+}
+
+function zoomOut() {
+    if (currentZoom > 0.5) {
+        currentZoom -= 0.25;
+    }
+
+    document.getElementById("zoomImage").style.transform =
+        "scale(" + currentZoom + ")";
+}
+
+function resetZoom() {
+    currentZoom = 1;
+    document.getElementById("zoomImage").style.transform =
+        "scale(1)";
+}
+</script>
 </body>
 </html>
